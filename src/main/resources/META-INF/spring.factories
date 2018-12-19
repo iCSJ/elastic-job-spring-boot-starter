@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.kzkj.com.elasticjob.autoconfigure.JobParserAutoConfiguration
+com.elasticjob.autoconfigure.JobParserAutoConfiguration

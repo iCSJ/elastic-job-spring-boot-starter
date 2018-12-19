@@ -1,11 +1,11 @@
-package com.kzkj.com.elasticjob.dynamic.service;
+package com.elasticjob.dynamic.service;
 
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import com.kzkj.com.elasticjob.base.JobTypeTag;
+import com.elasticjob.base.JobTypeTag;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.cache.ChildData;
 import org.apache.curator.framework.recipes.cache.PathChildrenCache;
@@ -22,8 +22,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import com.kzkj.com.elasticjob.dynamic.bean.Job;
-import com.kzkj.com.elasticjob.dynamic.util.JsonUtils;
+import com.elasticjob.dynamic.bean.Job;
+import com.elasticjob.dynamic.util.JsonUtils;
 import com.dangdang.ddframe.job.config.JobCoreConfiguration;
 import com.dangdang.ddframe.job.config.JobTypeConfiguration;
 import com.dangdang.ddframe.job.config.dataflow.DataflowJobConfiguration;

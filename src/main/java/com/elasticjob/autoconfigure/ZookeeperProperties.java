@@ -1,4 +1,4 @@
-package com.kzkj.com.elasticjob.autoconfigure;
+package com.elasticjob.autoconfigure;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

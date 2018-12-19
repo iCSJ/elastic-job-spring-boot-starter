@@ -1,4 +1,4 @@
-package com.kzkj.com.elasticjob.annotation;
+package com.elasticjob.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -7,7 +7,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import org.springframework.context.annotation.Import;
-import com.kzkj.com.elasticjob.autoconfigure.JobParserAutoConfiguration;
+import com.elasticjob.autoconfigure.JobParserAutoConfiguration;
 
 /**
  * @author chengshijun@kzkj.com

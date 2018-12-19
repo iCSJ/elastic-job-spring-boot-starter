@@ -1,4 +1,4 @@
-package com.kzkj.com.elasticjob.dynamic.util;
+package com.elasticjob.dynamic.util;
 
 import java.io.StringWriter;
 import java.util.HashMap;

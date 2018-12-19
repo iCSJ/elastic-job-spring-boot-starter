@@ -1,4 +1,4 @@
-package com.kzkj.com.elasticjob.parser;
+package com.elasticjob.parser;
 
 
 import java.util.List;
@@ -22,9 +22,9 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import com.kzkj.com.elasticjob.annotation.ElasticJobConf;
-import com.kzkj.com.elasticjob.base.JobAttributeTag;
-import com.kzkj.com.elasticjob.dynamic.service.JobService;
+import com.elasticjob.annotation.ElasticJobConf;
+import com.elasticjob.base.JobAttributeTag;
+import com.elasticjob.dynamic.service.JobService;
 import com.dangdang.ddframe.job.config.JobCoreConfiguration;
 import com.dangdang.ddframe.job.config.JobTypeConfiguration;
 import com.dangdang.ddframe.job.config.dataflow.DataflowJobConfiguration;

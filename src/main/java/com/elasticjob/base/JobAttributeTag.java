@@ -1,4 +1,4 @@
-package com.kzkj.com.elasticjob.base;
+package com.elasticjob.base;
 
 public class JobAttributeTag {
 

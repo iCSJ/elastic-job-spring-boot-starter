@@ -1,11 +1,11 @@
-package com.kzkj.com.elasticjob.autoconfigure;
+package com.elasticjob.autoconfigure;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.kzkj.com.elasticjob.parser.JobConfParser;
+import com.elasticjob.parser.JobConfParser;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperConfiguration;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
 

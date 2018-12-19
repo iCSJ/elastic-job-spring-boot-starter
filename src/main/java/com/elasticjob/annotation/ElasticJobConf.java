@@ -1,4 +1,4 @@
-package com.kzkj.com.elasticjob.annotation;
+package com.elasticjob.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

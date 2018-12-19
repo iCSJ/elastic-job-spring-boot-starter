@@ -1,9 +1,9 @@
-package com.kzkj.com.elasticjob.dynamic.controller;
+package com.elasticjob.dynamic.controller;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.kzkj.com.elasticjob.base.JobTypeTag;
+import com.elasticjob.base.JobTypeTag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kzkj.com.elasticjob.dynamic.bean.Job;
-import com.kzkj.com.elasticjob.dynamic.service.JobService;
+import com.elasticjob.dynamic.bean.Job;
+import com.elasticjob.dynamic.service.JobService;
 
 /**
  * @author chengshijun@kzkj.com

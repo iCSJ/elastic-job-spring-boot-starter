@@ -1,4 +1,4 @@
-package com.kzkj.com.elasticjob.dynamic.bean;
+package com.elasticjob.dynamic.bean;
 
 /**
  * @author chengshijun@kzkj.com
