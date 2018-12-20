@@ -12,6 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <elasticjob-version>2.1.5</elasticjob-version>
     </properties>
 
     <dependencyManagement>
@@ -19,19 +20,9 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>1.5.4.RELEASE</version>
+                <version>1.5.8.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.curator</groupId>
-                <artifactId>curator-recipes</artifactId>
-                <version>2.10.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.curator</groupId>
-                <artifactId>curator-framework</artifactId>
-                <version>2.10.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -43,28 +34,31 @@
         <dependency>
             <groupId>com.dangdang</groupId>
             <artifactId>elastic-job-lite-core</artifactId>
-            <version>2.1.5</version>
+            <version>${elasticjob-version}</version>
         </dependency>
         <dependency>
             <groupId>com.dangdang</groupId>
             <artifactId>elastic-job-lite-spring</artifactId>
-            <version>2.1.5</version>
+            <version>${elasticjob-version}</version>
         </dependency>
         <dependency>
             <groupId>com.dangdang</groupId>
             <artifactId>elastic-job-common-core</artifactId>
-            <version>2.1.5</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>curator-recipes</artifactId>
-                    <groupId>org.apache.curator</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>curator-framework</artifactId>
-                    <groupId>org.apache.curator</groupId>
-                </exclusion>
-            </exclusions>
+            <version>${elasticjob-version}</version>
         </dependency>
-
     </dependencies>
+    <distributionManagement>
+        <!--snapshot发布仓库-->
+        <repository>
+            <id>nexus</id>
+            <name>Releases</name>
+            <url>http://10.164.236.101:8081/nexus/content/repositories/releases/</url>
+        </repository>
+        <!--snapshot快照仓库-->
+        <snapshotRepository>
+            <id>nexus</id>
+            <name>Snapshots</name>
+            <url>http://10.164.236.101:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
