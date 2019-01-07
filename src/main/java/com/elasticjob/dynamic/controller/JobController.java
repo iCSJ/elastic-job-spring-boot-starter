@@ -60,7 +60,7 @@ public class JobController {
      */
     @PostMapping("/job/add")
     public Object addJob(@RequestBody Job job) {
-        Map<String, Object> result = new HashMap<String, Object>();
+        Map<String, Object> result = new HashMap<>();
         result.put("status", true);
 
         if (!StringUtils.hasText(job.getJobName())) {
@@ -111,7 +111,7 @@ public class JobController {
      */
     @PutMapping("/job/update")
     public Object updateJobSettings(@RequestBody JobSettings jobSettings) {
-        Map<String, Object> result = new HashMap<String, Object>();
+        Map<String, Object> result = new HashMap<>();
         result.put("status", true);
         if (!StringUtils.hasText(jobSettings.getJobName())) {
             result.put("status", false);
@@ -148,7 +148,7 @@ public class JobController {
      */
     @GetMapping("/job/updateCron")
     public Object updateJobCron(String jobName, String cron) {
-        Map<String, Object> result = new HashMap<String, Object>();
+        Map<String, Object> result = new HashMap<>();
         result.put("status", true);
         if (!StringUtils.hasText(jobName)) {
             result.put("status", false);
@@ -178,7 +178,7 @@ public class JobController {
      */
     @GetMapping("/job/remove")
     public Object removeJob(String jobName) {
-        Map<String, Object> result = new HashMap<String, Object>();
+        Map<String, Object> result = new HashMap<>();
         result.put("status", true);
         try {
             jobService.removeJob(jobName);
