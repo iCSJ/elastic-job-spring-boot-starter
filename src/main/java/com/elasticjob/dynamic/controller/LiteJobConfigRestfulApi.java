@@ -74,8 +74,8 @@ public final class LiteJobConfigRestfulApi {
      * @param cron
      * @return
      */
-    @PutMapping("/{jobName}/cron/{cron}")
-    public void updateJobCron(@PathVariable("jobName") String jobName, @PathVariable("cron") String cron) {
+    @PutMapping("/{jobName}/cron")
+    public void updateJobCron(@PathVariable("jobName") String jobName, String cron) {
         jobAPIService.updateJobCron(jobName, cron);
     }
 
