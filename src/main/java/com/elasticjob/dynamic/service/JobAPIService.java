@@ -47,9 +47,9 @@ import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
  * @Copyright 2018 www.kzkj.com Inc. All rights reserved.
  */
 @Service
-public class JobService {
+public class JobAPIService {
 
-    private Logger logger = LoggerFactory.getLogger(JobService.class);
+    private Logger logger = LoggerFactory.getLogger(JobAPIService.class);
     @Autowired
     private ZookeeperProperties zookeeperProperties;
     @Autowired

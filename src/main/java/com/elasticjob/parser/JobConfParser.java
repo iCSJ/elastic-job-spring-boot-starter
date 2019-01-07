@@ -24,7 +24,7 @@ import org.springframework.util.StringUtils;
 
 import com.elasticjob.annotation.ElasticJobConf;
 import com.elasticjob.base.JobAttributeTag;
-import com.elasticjob.dynamic.service.JobService;
+import com.elasticjob.dynamic.service.JobAPIService;
 import com.dangdang.ddframe.job.config.JobCoreConfiguration;
 import com.dangdang.ddframe.job.config.JobTypeConfiguration;
 import com.dangdang.ddframe.job.config.dataflow.DataflowJobConfiguration;
@@ -57,7 +57,7 @@ public class JobConfParser implements ApplicationContextAware {
     private Environment environment;
 
     @Autowired(required = false)
-    private JobService jobService;
+    private JobAPIService jobAPIService;
 
     @Override
     public void setApplicationContext(ApplicationContext ctx) throws BeansException {
@@ -159,8 +159,8 @@ public class JobConfParser implements ApplicationContextAware {
         }
 
         //开启任务监听,当有任务添加时，监听zk中的数据增加，自动在其他节点也初始化该任务
-        if (jobService != null) {
-            jobService.monitorJobRegister();
+        if (jobAPIService != null) {
+            jobAPIService.monitorJobRegister();
         }
 
     }
