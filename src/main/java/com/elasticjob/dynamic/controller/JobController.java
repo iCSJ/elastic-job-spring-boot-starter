@@ -109,8 +109,8 @@ public class JobController {
      *
      * @param jobSettings 作业配置
      */
-    @PutMapping("/job/update")
-    public Object updateJobSettings(@RequestBody JobSettings jobSettings) {
+    @PostMapping("/job/update")
+    public Object updateJob(@RequestBody JobSettings jobSettings) {
         Map<String, Object> result = new HashMap<>();
         result.put("status", true);
         if (!StringUtils.hasText(jobSettings.getJobName())) {
