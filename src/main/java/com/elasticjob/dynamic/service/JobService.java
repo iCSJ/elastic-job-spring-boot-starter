@@ -82,10 +82,11 @@ public class JobService {
         return JobAPIFactory.createShardingStatisticsAPI(zookeeperProperties.getServerLists(), zookeeperProperties.getNamespace(), Optional.fromNullable(zookeeperProperties.getDigest()));
     }
 
-    /**
-     * 记录任务添加次数
-     */
     private Map<String, AtomicInteger> JOB_ADD_COUNT = new ConcurrentHashMap<String, AtomicInteger>();
+
+    public JobSettings getJob(String jobName) {
+        return getJobSettingsAPI().getJobSettings(jobName);
+    }
 
     public void addJob(Job job) {
         // 核心配置

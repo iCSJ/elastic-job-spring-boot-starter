@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.dangdang.ddframe.job.lite.lifecycle.domain.JobSettings;
 import com.elasticjob.base.JobTypeTag;
+import com.elasticjob.dynamic.util.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,32 @@ public class JobController {
 
     @Autowired
     private JobService jobService;
+
+    /**
+     * 获取作业配置
+     *
+     * @param jobName 任务名称
+     * @throws Exception
+     */
+    @GetMapping("/job/get")
+    public Object getJob(String jobName) {
+        Map<String, Object> result = new HashMap<>();
+        result.put("status", true);
+        if (!StringUtils.hasText(jobName)) {
+            result.put("status", false);
+            result.put("message", "name not null");
+            return result;
+        }
+
+        try {
+            JobSettings jobSettings = jobService.getJob(jobName);
+            result.put("data", JsonUtils.toJson(jobSettings));
+        } catch (Exception e) {
+            result.put("status", false);
+            result.put("message", e.getMessage());
+        }
+        return result;
+    }
 
     /**
      * 添加动态任务（适用于脚本逻辑已存在的情况，只是动态添加了触发的时间）
@@ -86,6 +113,23 @@ public class JobController {
     public Object updateJobSettings(@RequestBody JobSettings jobSettings) {
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("status", true);
+        if (!StringUtils.hasText(jobSettings.getJobName())) {
+            result.put("status", false);
+            result.put("message", "name not null");
+            return result;
+        }
+
+        if (!StringUtils.hasText(jobSettings.getCron())) {
+            result.put("status", false);
+            result.put("message", "cron not null");
+            return result;
+        }
+
+        if (!StringUtils.hasText(jobSettings.getJobType())) {
+            result.put("status", false);
+            result.put("message", "getJobType not null");
+            return result;
+        }
         try {
             jobService.updateJob(jobSettings);
         } catch (Exception e) {
@@ -106,6 +150,17 @@ public class JobController {
     public Object updateJobCron(String jobName, String cron) {
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("status", true);
+        if (!StringUtils.hasText(jobName)) {
+            result.put("status", false);
+            result.put("message", "name not null");
+            return result;
+        }
+
+        if (!StringUtils.hasText(cron)) {
+            result.put("status", false);
+            result.put("message", "cron not null");
+            return result;
+        }
         try {
             jobService.updateJobCron(jobName, cron);
         } catch (Exception e) {
