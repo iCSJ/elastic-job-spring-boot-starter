@@ -128,7 +128,6 @@ public @interface ElasticJobConf {
      * @return
      */
     boolean monitorExecution() default true;
-
     /**
      * 作业监控端口
      * <p>建议配置作业监控端口, 方便开发者dump作业信息。<p>

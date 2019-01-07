@@ -5,7 +5,11 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.dangdang.ddframe.job.lite.lifecycle.api.*;
+import com.dangdang.ddframe.job.lite.lifecycle.domain.JobSettings;
+import com.elasticjob.autoconfigure.ZookeeperProperties;
 import com.elasticjob.base.JobTypeTag;
+import com.google.common.base.Optional;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.cache.ChildData;
 import org.apache.curator.framework.recipes.cache.PathChildrenCache;
@@ -46,12 +50,37 @@ import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
 public class JobService {
 
     private Logger logger = LoggerFactory.getLogger(JobService.class);
-
+    @Autowired
+    private ZookeeperProperties zookeeperProperties;
     @Autowired
     private ZookeeperRegistryCenter zookeeperRegistryCenter;
-
     @Autowired
     private ApplicationContext ctx;
+
+    public JobSettingsAPI getJobSettingsAPI() {
+        return JobAPIFactory.createJobSettingsAPI(zookeeperProperties.getServerLists(), zookeeperProperties.getNamespace(), Optional.fromNullable(zookeeperProperties.getDigest()));
+    }
+
+    public JobOperateAPI getJobOperatorAPI() {
+        return JobAPIFactory.createJobOperateAPI(zookeeperProperties.getServerLists(), zookeeperProperties.getNamespace(), Optional.fromNullable(zookeeperProperties.getDigest()));
+    }
+
+    public ShardingOperateAPI getShardingOperateAPI() {
+        return JobAPIFactory.createShardingOperateAPI(zookeeperProperties.getServerLists(), zookeeperProperties.getNamespace(), Optional.fromNullable(zookeeperProperties.getDigest()));
+    }
+
+    public JobStatisticsAPI getJobStatisticsAPI() {
+        return JobAPIFactory.createJobStatisticsAPI(zookeeperProperties.getServerLists(), zookeeperProperties.getNamespace(), Optional.fromNullable(zookeeperProperties.getDigest()));
+    }
+
+    public ServerStatisticsAPI getServerStatisticsAPI() {
+
+        return JobAPIFactory.createServerStatisticsAPI(zookeeperProperties.getServerLists(), zookeeperProperties.getNamespace(), Optional.fromNullable(zookeeperProperties.getDigest()));
+    }
+
+    public ShardingStatisticsAPI getShardingStatisticsAPI() {
+        return JobAPIFactory.createShardingStatisticsAPI(zookeeperProperties.getServerLists(), zookeeperProperties.getNamespace(), Optional.fromNullable(zookeeperProperties.getDigest()));
+    }
 
     /**
      * 记录任务添加次数
@@ -149,6 +178,17 @@ public class JobService {
         return result;
     }
 
+    public void updateJob(JobSettings jobSettings) {
+        getJobSettingsAPI().updateJobSettings(jobSettings);
+    }
+
+    public void updateJobCron(String jobName, String cron) {
+        JobSettings jobSettings = getJobSettingsAPI().getJobSettings(jobName);
+        jobSettings.setCron(cron);
+        jobSettings.setMonitorExecution(true);
+        jobSettings.setMaxTimeDiffSeconds(-1);
+        getJobSettingsAPI().updateJobSettings(jobSettings);
+    }
 
     public void removeJob(String jobName) throws Exception {
         CuratorFramework client = zookeeperRegistryCenter.getClient();

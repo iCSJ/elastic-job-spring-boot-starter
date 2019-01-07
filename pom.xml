@@ -46,6 +46,11 @@
             <artifactId>elastic-job-common-core</artifactId>
             <version>${elasticjob-version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.dangdang</groupId>
+            <artifactId>elastic-job-lite-lifecycle</artifactId>
+            <version>${elasticjob-version}</version>
+        </dependency>
     </dependencies>
     <distributionManagement>
         <!--snapshot发布仓库-->
@@ -61,4 +66,24 @@
             <url>http://10.164.236.101:8081/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
+    <build>
+        <plugins>
+            <!--打包源码-->
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
