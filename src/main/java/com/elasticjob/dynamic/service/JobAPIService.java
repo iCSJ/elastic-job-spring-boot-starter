@@ -40,11 +40,11 @@ import com.dangdang.ddframe.job.lite.spring.api.SpringJobScheduler;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
 
 /**
- * @author chengshijun@kzkj.com
+ * @author chengshijun@haiermoney.com
  * @version V1.0.0
  * @date 2018/12/14 10:34
  * @description JobService
- * @Copyright 2018 www.kzkj.com Inc. All rights reserved.
+ * @Copyright 2018 www.haiermoney.com Inc. All rights reserved.
  */
 @Service
 public class JobAPIService {
@@ -192,8 +192,7 @@ public class JobAPIService {
     }
 
     public void removeJob(String jobName) throws Exception {
-        CuratorFramework client = zookeeperRegistryCenter.getClient();
-        client.delete().deletingChildrenIfNeeded().forPath("/" + jobName);
+        getJobSettingsAPI().removeJobSettings(jobName);
     }
 
     /**

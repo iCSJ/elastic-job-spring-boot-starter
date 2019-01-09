@@ -3,11 +3,11 @@ package com.elasticjob.dynamic.bean;
 import java.io.Serializable;
 
 /**
- * @author chengshijun@kzkj.com
+ * @author chengshijun@haiermoney.com
  * @version V1.0.0
  * @date 2018/12/14 10:41
  * @description Job Job定义
- * @Copyright 2018 www.kzkj.com Inc. All rights reserved.
+ * @Copyright 2018 www.haiermoney.com Inc. All rights reserved.
  */
 public class Job implements Serializable {
     private static final long serialVersionUID = 1L;

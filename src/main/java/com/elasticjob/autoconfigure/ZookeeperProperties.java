@@ -3,11 +3,11 @@ package com.elasticjob.autoconfigure;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * @author chengshijun@kzkj.com
+ * @author chengshijun@haiermoney.com
  * @version V1.0.0
  * @date 2018/12/14 10:36
  * @description ZookeeperProperties
- * @Copyright 2018 www.kzkj.com Inc. All rights reserved.
+ * @Copyright 2018 www.haiermoney.com Inc. All rights reserved.
  */
 @ConfigurationProperties(prefix = "elastic.job.zk")
 public class ZookeeperProperties {

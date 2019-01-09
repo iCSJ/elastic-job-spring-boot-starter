@@ -37,11 +37,11 @@ import com.dangdang.ddframe.job.lite.spring.api.SpringJobScheduler;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
 
 /**
- * @author chengshijun@kzkj.com
+ * @author chengshijun@haiermoney.com
  * @version V1.0.0
  * @date 2018/12/14 10:36
  * @description JobConfParser Job解析类
- * @Copyright 2018 www.kzkj.com Inc. All rights reserved.
+ * @Copyright 2018 www.haiermoney.com Inc. All rights reserved.
  */
 @Component
 @Configuration

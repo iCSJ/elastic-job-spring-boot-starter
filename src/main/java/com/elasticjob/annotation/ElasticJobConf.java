@@ -9,11 +9,11 @@ import org.springframework.core.annotation.AliasFor;
 import org.springframework.stereotype.Component;
 
 /**
- * @author chengshijun@kzkj.com
+ * @author chengshijun@haiermoney.com
  * @version V1.0.0
  * @date 2018/12/14 10:38
  * @description ElasticJobConf ElasticJob 注解配置类,任务的配置只需要在Job类上加上此注解即可
- * @Copyright 2018 www.kzkj.com Inc. All rights reserved.
+ * @Copyright 2018 www.haiermoney.com Inc. All rights reserved.
  */
 @Component
 @Target({ElementType.TYPE})

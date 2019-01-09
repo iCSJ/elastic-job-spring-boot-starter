@@ -3,11 +3,11 @@ package com.elasticjob.dynamic.bean;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * @author chengshijun@kzkj.com
+ * @author chengshijun@haiermoney.com
  * @version V1.0.0
  * @date 2018/12/14 10:41
  * @description JobProperties Job扩展属性
- * @Copyright 2018 www.kzkj.com Inc. All rights reserved.
+ * @Copyright 2018 www.haiermoney.com Inc. All rights reserved.
  */
 public class JobProperties {
 
