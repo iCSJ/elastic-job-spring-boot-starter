@@ -15,11 +15,11 @@
  * </p>
  */
 
-package com.elasticjob.dynamic.controller;
+package com.haiermoney.dynamic.controller;
 
 import com.dangdang.ddframe.job.lite.lifecycle.domain.JobBriefInfo;
 import com.dangdang.ddframe.job.lite.lifecycle.domain.ShardingInfo;
-import com.elasticjob.dynamic.service.JobAPIService;
+import com.haiermoney.dynamic.service.JobAPIService;
 import com.google.common.base.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

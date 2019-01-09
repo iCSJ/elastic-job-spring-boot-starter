@@ -1,4 +1,4 @@
-package com.elasticjob.base;
+package com.haiermoney.base;
 
 public class JobAttributeTag {
 

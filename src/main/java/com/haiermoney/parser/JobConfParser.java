@@ -1,4 +1,4 @@
-package com.elasticjob.parser;
+package com.haiermoney.parser;
 
 
 import java.util.List;
@@ -22,9 +22,9 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import com.elasticjob.annotation.ElasticJobConf;
-import com.elasticjob.base.JobAttributeTag;
-import com.elasticjob.dynamic.service.JobAPIService;
+import com.haiermoney.annotation.ElasticJobConf;
+import com.haiermoney.base.JobAttributeTag;
+import com.haiermoney.dynamic.service.JobAPIService;
 import com.dangdang.ddframe.job.config.JobCoreConfiguration;
 import com.dangdang.ddframe.job.config.JobTypeConfiguration;
 import com.dangdang.ddframe.job.config.dataflow.DataflowJobConfiguration;

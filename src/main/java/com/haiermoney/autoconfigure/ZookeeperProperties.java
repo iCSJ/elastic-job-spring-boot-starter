@@ -1,4 +1,4 @@
-package com.elasticjob.autoconfigure;
+package com.haiermoney.autoconfigure;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

@@ -1,4 +1,4 @@
-package com.elasticjob.dynamic.service;
+package com.haiermoney.dynamic.service;
 
 import java.util.List;
 import java.util.Map;
@@ -7,8 +7,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import com.dangdang.ddframe.job.lite.lifecycle.api.*;
 import com.dangdang.ddframe.job.lite.lifecycle.domain.JobSettings;
-import com.elasticjob.autoconfigure.ZookeeperProperties;
-import com.elasticjob.base.JobTypeTag;
+import com.haiermoney.autoconfigure.ZookeeperProperties;
+import com.haiermoney.base.JobTypeTag;
 import com.google.common.base.Optional;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.cache.ChildData;
@@ -26,8 +26,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import com.elasticjob.dynamic.bean.Job;
-import com.elasticjob.dynamic.util.JsonUtils;
+import com.haiermoney.dynamic.bean.Job;
+import com.haiermoney.dynamic.util.JsonUtils;
 import com.dangdang.ddframe.job.config.JobCoreConfiguration;
 import com.dangdang.ddframe.job.config.JobTypeConfiguration;
 import com.dangdang.ddframe.job.config.dataflow.DataflowJobConfiguration;

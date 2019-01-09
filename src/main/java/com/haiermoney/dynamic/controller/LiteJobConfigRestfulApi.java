@@ -15,12 +15,12 @@
  * </p>
  */
 
-package com.elasticjob.dynamic.controller;
+package com.haiermoney.dynamic.controller;
 
 
 import com.dangdang.ddframe.job.lite.lifecycle.domain.JobSettings;
-import com.elasticjob.dynamic.bean.Job;
-import com.elasticjob.dynamic.service.JobAPIService;
+import com.haiermoney.dynamic.bean.Job;
+import com.haiermoney.dynamic.service.JobAPIService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
