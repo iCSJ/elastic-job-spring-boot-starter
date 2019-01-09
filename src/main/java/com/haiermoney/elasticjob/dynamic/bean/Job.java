@@ -1,4 +1,4 @@
-package com.haiermoney.dynamic.bean;
+package com.haiermoney.elasticjob.dynamic.bean;
 
 import java.io.Serializable;
 

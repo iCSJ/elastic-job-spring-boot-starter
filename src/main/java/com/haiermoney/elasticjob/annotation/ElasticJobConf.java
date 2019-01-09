@@ -1,4 +1,4 @@
-package com.haiermoney.annotation;
+package com.haiermoney.elasticjob.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,4 +1,4 @@
-package com.haiermoney.base;
+package com.haiermoney.elasticjob.base;
 
 /**
  * @author chengshijun@haiermoney.com

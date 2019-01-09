@@ -1,11 +1,11 @@
-package com.haiermoney.autoconfigure;
+package com.haiermoney.elasticjob.autoconfigure;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.haiermoney.parser.JobConfParser;
+import com.haiermoney.elasticjob.parser.JobConfParser;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperConfiguration;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
 

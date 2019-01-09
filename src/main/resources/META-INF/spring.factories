@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.haiermoney.autoconfigure.JobParserAutoConfiguration
+com.haiermoney.elasticjob.autoconfigure.JobParserAutoConfiguration

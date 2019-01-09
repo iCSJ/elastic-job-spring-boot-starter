@@ -1,4 +1,4 @@
-package com.haiermoney.dynamic.util;
+package com.haiermoney.elasticjob.dynamic.util;
 
 import java.io.StringWriter;
 import java.util.HashMap;
