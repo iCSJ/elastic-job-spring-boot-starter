@@ -65,7 +65,6 @@ public class JobConfParser implements ApplicationContextAware {
         Map<String, Object> beanMap = ctx.getBeansWithAnnotation(ElasticJobConf.class);
         for (Object confBean : beanMap.values()) {
             Class<?> clz = confBean.getClass();
-            String jobTypeName = confBean.getClass().getInterfaces()[0].getSimpleName();
             ElasticJobConf conf = clz.getAnnotation(ElasticJobConf.class);
 
             String jobClass = clz.getName();
@@ -108,15 +107,15 @@ public class JobConfParser implements ApplicationContextAware {
             // 不同类型的任务配置处理
             LiteJobConfiguration jobConfig = null;
             JobTypeConfiguration typeConfig = null;
-            if (jobTypeName.equals(SimpleJob.class.getSimpleName())) {
+            if (SimpleJob.class.isAssignableFrom(clz)) {
                 typeConfig = new SimpleJobConfiguration(coreConfig, jobClass);
             }
 
-            if (jobTypeName.equals(DataflowJob.class.getSimpleName())) {
+            if (DataflowJob.class.isAssignableFrom(clz)) {
                 typeConfig = new DataflowJobConfiguration(coreConfig, jobClass, streamingProcess);
             }
 
-            if (jobTypeName.equals(ScriptJob.class.getSimpleName())) {
+            if (ScriptJob.class.isAssignableFrom(clz)) {
                 typeConfig = new ScriptJobConfiguration(coreConfig, scriptCommandLine);
             }
 
@@ -135,7 +134,7 @@ public class JobConfParser implements ApplicationContextAware {
             // 构建SpringJobScheduler对象来初始化任务
             BeanDefinitionBuilder factory = BeanDefinitionBuilder.rootBeanDefinition(SpringJobScheduler.class);
             factory.setScope(BeanDefinition.SCOPE_PROTOTYPE);
-            if (ScriptJob.class.getSimpleName().equals(jobTypeName)) {
+            if (ScriptJob.class.isAssignableFrom(clz)) {
                 factory.addConstructorArgValue(null);
             } else {
                 factory.addConstructorArgValue(confBean);
