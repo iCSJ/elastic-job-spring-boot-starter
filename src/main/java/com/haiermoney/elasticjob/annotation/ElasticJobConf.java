@@ -1,6 +1,7 @@
 package com.haiermoney.elasticjob.annotation;
 
 import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Component;
  * @description ElasticJobConf ElasticJob 注解配置类,任务的配置只需要在Job类上加上此注解即可
  * @Copyright 2018 www.haiermoney.com Inc. All rights reserved.
  */
+@Inherited
 @Component
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
