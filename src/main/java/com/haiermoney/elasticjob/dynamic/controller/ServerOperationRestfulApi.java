@@ -37,7 +37,7 @@ import java.util.Collection;
  */
 @RequestMapping("/servers")
 @RestController
-public final class ServerOperationRestfulApi {
+public  class ServerOperationRestfulApi {
     @Autowired
     private JobAPIService jobAPIService;
 

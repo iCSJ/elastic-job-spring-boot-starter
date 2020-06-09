@@ -22,7 +22,14 @@ import com.dangdang.ddframe.job.lite.lifecycle.domain.JobSettings;
 import com.haiermoney.elasticjob.dynamic.bean.Job;
 import com.haiermoney.elasticjob.dynamic.service.JobAPIService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 作业配置的RESTful API.
@@ -31,7 +38,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RequestMapping("/jobs/config")
 @RestController
-public final class LiteJobConfigRestfulApi {
+public class LiteJobConfigRestfulApi {
     @Autowired
     private JobAPIService jobAPIService;
 
