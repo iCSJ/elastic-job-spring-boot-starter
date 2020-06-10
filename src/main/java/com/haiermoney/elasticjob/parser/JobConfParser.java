@@ -1,12 +1,22 @@
 package com.haiermoney.elasticjob.parser;
 
 
-import java.util.List;
-import java.util.Map;
-
 import com.dangdang.ddframe.job.api.dataflow.DataflowJob;
 import com.dangdang.ddframe.job.api.script.ScriptJob;
 import com.dangdang.ddframe.job.api.simple.SimpleJob;
+import com.dangdang.ddframe.job.config.JobCoreConfiguration;
+import com.dangdang.ddframe.job.config.JobTypeConfiguration;
+import com.dangdang.ddframe.job.config.dataflow.DataflowJobConfiguration;
+import com.dangdang.ddframe.job.config.script.ScriptJobConfiguration;
+import com.dangdang.ddframe.job.config.simple.SimpleJobConfiguration;
+import com.dangdang.ddframe.job.event.rdb.JobEventRdbConfiguration;
+import com.dangdang.ddframe.job.executor.handler.JobProperties.JobPropertiesEnum;
+import com.dangdang.ddframe.job.lite.config.LiteJobConfiguration;
+import com.dangdang.ddframe.job.lite.spring.api.SpringJobScheduler;
+import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
+import com.haiermoney.elasticjob.annotation.ElasticJobConf;
+import com.haiermoney.elasticjob.base.JobAttributeTag;
+import com.haiermoney.elasticjob.dynamic.service.JobAPIService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -22,19 +32,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import com.haiermoney.elasticjob.annotation.ElasticJobConf;
-import com.haiermoney.elasticjob.base.JobAttributeTag;
-import com.haiermoney.elasticjob.dynamic.service.JobAPIService;
-import com.dangdang.ddframe.job.config.JobCoreConfiguration;
-import com.dangdang.ddframe.job.config.JobTypeConfiguration;
-import com.dangdang.ddframe.job.config.dataflow.DataflowJobConfiguration;
-import com.dangdang.ddframe.job.config.script.ScriptJobConfiguration;
-import com.dangdang.ddframe.job.config.simple.SimpleJobConfiguration;
-import com.dangdang.ddframe.job.event.rdb.JobEventRdbConfiguration;
-import com.dangdang.ddframe.job.executor.handler.JobProperties.JobPropertiesEnum;
-import com.dangdang.ddframe.job.lite.config.LiteJobConfiguration;
-import com.dangdang.ddframe.job.lite.spring.api.SpringJobScheduler;
-import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author chengshijun@haiermoney.com
@@ -65,6 +64,9 @@ public class JobConfParser implements ApplicationContextAware {
         Map<String, Object> beanMap = ctx.getBeansWithAnnotation(ElasticJobConf.class);
         for (Object confBean : beanMap.values()) {
             Class<?> clz = confBean.getClass();
+            if (clz.getName().contains("$$EnhancerBySpringCGLIB$$")) {
+                clz = clz.getSuperclass();
+            }
             ElasticJobConf conf = clz.getAnnotation(ElasticJobConf.class);
 
             String jobClass = clz.getName();
